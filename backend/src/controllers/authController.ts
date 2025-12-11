@@ -18,7 +18,7 @@ import {
   verificationService,
 } from "src/services/authService";
 
-const { FRONT_SERVER } = process.env;
+const { FRONT_SERVER, FRONT_WEB_SERVER } = process.env;
 
 const register = async (req: Request, res: Response) => {
   const { name, email, password, phone } = req.body;
@@ -195,7 +195,7 @@ const paymentReturn = async (req: Request, res: Response) => {
         <h2>Processing your payment...</h2>
         <script>
             setTimeout(() => {
-                window.location.href = "${FRONT_SERVER}/payment-success";
+                window.location.href = "${FRONT_WEB_SERVER ? FRONT_WEB_SERVER : FRONT_SERVER}/payment-success";
             }, 500);
         </script>
     </body>

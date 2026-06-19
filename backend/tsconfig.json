@@ -1,9 +1,10 @@
 {
-  "typeRoots": ["@types/node", "./src/types"],
   "compilerOptions": {
+    "typeRoots": ["./node_modules/@types", "./src/types"],
     "strict": true,
     "module": "ESNext",
     "moduleResolution": "node",
+    "ignoreDeprecations": "5.0",
     "declaration": true,
     "removeComments": true,
     "allowSyntheticDefaultImports": true,

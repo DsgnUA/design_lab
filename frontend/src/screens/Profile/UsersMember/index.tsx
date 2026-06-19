@@ -53,7 +53,7 @@ const UserMember = ({ className, user, setDate }: UserProps) => {
             </p>
             <p className={styles.info__text}>
               {t("profile.sub")}
-              <span>{user.subscription === "sale" && "Premium Access"}</span>
+              <span>{user.subscription === "member" && "Premium Access"}</span>
             </p>
             <p className={styles.info__text}>
               {" "}

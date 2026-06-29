@@ -32,11 +32,13 @@ app.use(
     origin: [
       process.env.FRONT_SERVER,
       process.env.FRONT_WEB_SERVER,
+      process.env.FRONT_SERVER_OLD,
+      process.env.FRONT_SERVER_OLD_WEB,
       "https://secure.wayforpay.com",
     ],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Authorization", "Content-Type"],
-  })
+  }),
 );
 app.use(express.json()); // для application/json
 app.use(express.urlencoded({ extended: true })); // для application/x-www-form-urlencoded
@@ -52,7 +54,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   res.on("finish", () => {
     const duration = Date.now() - start;
     console.info(
-      `📩 New Request: ${ip} ${req.method} ${req.originalUrl} -> ${res.statusCode} ${res.statusMessage} (${duration}ms)`
+      `📩 New Request: ${ip} ${req.method} ${req.originalUrl} -> ${res.statusCode} ${res.statusMessage} (${duration}ms)`,
     );
   });
 
